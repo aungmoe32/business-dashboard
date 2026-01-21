@@ -1,6 +1,8 @@
 import React from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import SummaryCards from "../components/SummaryCards";
+import { SALES_CHART_DATA } from "../../constants";
+import ChartSection from "../components/ChartSection";
 
 const Dashboard: React.FC = () => {
   // for mmk
@@ -13,6 +15,8 @@ const Dashboard: React.FC = () => {
       <DashboardHeader />
 
       <SummaryCards formatMMK={formatMMK} />
+
+      <ChartSection data={SALES_CHART_DATA} formatMMK={formatMMK} />
     </div>
   );
 };
