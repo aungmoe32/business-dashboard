@@ -115,6 +115,7 @@ const ChartSection: React.FC<ChartSectionProps> = ({ data, formatMMK }) => {
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
+                // @ts-ignore
                 data={productData}
                 cx="50%"
                 cy="50%"
