@@ -6,6 +6,7 @@ import ReportSection from "../components/ReportSection";
 import ProfitCard from "../components/ProfitCard";
 import CategoryBreakdown from "../components/CategoryBreakdown";
 import ExpenseStructure from "../components/ExpenseStructure";
+import { calculateProfitLoss } from "../../utils/profitLossCalculations";
 
 const ProfitLossReport: React.FC = () => {
   const {
@@ -23,6 +24,16 @@ const ProfitLossReport: React.FC = () => {
     taxes,
   } = PROFIT_LOSS_DATA;
 
+  const calculations = calculateProfitLoss(PROFIT_LOSS_DATA);
+  const {
+    cogs,
+    grossProfit,
+    grossProfitMargin,
+    totalOperatingExpenses,
+    operatingProfit,
+    netProfit,
+  } = calculations;
+
   const formatMMK = (amount: number) => {
     return `${amount.toLocaleString()} MMK`;
   };
@@ -30,27 +41,6 @@ const ProfitLossReport: React.FC = () => {
   const exportToCSV = () => {
     alert("Export to CSV functionality is not implemented yet.");
   };
-
-  // B. Cost of Goods Sold (COGS): Opening Stock + Purchases - Closing Stock
-  const cogs =
-    openingStock + purchases - purchaseReturns + directCosts - closingStock;
-
-  // C. Gross Profit: Net Sales - COGS
-  const grossProfit = netSales - cogs;
-  const grossProfitMargin = ((grossProfit / netSales) * 100).toFixed(1);
-
-  // D. Total Operating Expenses
-  const totalOperatingExpenses = Object.values(operatingExpenses).reduce(
-    (sum, expense) => sum + expense,
-    0,
-  );
-
-  // E. Operating Profit: Gross Profit - Operating Expenses
-  const operatingProfit = grossProfit - totalOperatingExpenses;
-
-  // G. Net Profit: Operating Profit + Other Income - Other Expenses - Taxes
-  const netProfit =
-    operatingProfit + otherIncome - nonOperatingExpenses - taxes;
 
   const categoryData = [
     {
