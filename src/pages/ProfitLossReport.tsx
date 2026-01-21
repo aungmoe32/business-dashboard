@@ -7,6 +7,7 @@ import ProfitCard from "../components/ProfitCard";
 import CategoryBreakdown from "../components/CategoryBreakdown";
 import ExpenseStructure from "../components/ExpenseStructure";
 import { calculateProfitLoss } from "../../utils/profitLossCalculations";
+import { exportProfitLossToCSV } from "../../utils/csvExport";
 
 const ProfitLossReport: React.FC = () => {
   const {
@@ -39,7 +40,7 @@ const ProfitLossReport: React.FC = () => {
   };
 
   const exportToCSV = () => {
-    alert("Export to CSV functionality is not implemented yet.");
+    exportProfitLossToCSV(PROFIT_LOSS_DATA, calculations);
   };
 
   const categoryData = [
