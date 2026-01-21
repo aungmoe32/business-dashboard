@@ -1,6 +1,7 @@
 # Business Intelligence Dashboard
 
 A React-based business intelligence dashboard for Myanmar businesses with sales analytics and profit/loss reporting.
+Demo url: [https://bi-dashboard-myanmar.vercel.app/](https://bi-dashboard-myanmar.vercel.app/)
 
 ## Features
 

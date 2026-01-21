@@ -1,13 +1,8 @@
-import React from "react";
 import {
   LayoutDashboard,
-  FileText,
   ShoppingCart,
   Package,
-  Users,
-  Settings,
   BarChart3,
-  CreditCard,
 } from "lucide-react";
 
 export const NAV_ITEMS = [
